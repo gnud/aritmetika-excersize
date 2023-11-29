@@ -11,6 +11,16 @@ Rules:
   - operator type enum
   - two inputs (assumption made due to unspecified requirements) as operands.
 
+# Project Dependencies
+
+Tested on:
+- python 3.11.0
+- node v18.12.1
+
+System:
+- virtualenv to be installed.
+- docker to be installed and ready for deployment (optional)
+
 # Deployment Docker
 
 ### Initial setup
@@ -52,15 +62,16 @@ API_REWRITE=/api
 ```
 
 ```bash
-cd front
+cd front/calculator_react
 nvm use
 npm install
 ```
 
 ### Run
 ```bash
+cd front/calculator_react
 nvm use
-npm run
+npm start
 ```
 
 ## Usage
@@ -81,6 +92,34 @@ virtualenv -p python3 venv
 . venv/bin/activate
 pip install -r requirements.txt
 ````
+
+Test by opening http://127.0.0.1:5023/operations
+or executing
+
+```bash
+curl -v http://127.0.0.1:5023/operations
+````
+
+Sample output
+
+```bash
+*   Trying 127.0.0.1:5023...
+* Connected to 127.0.0.1 (127.0.0.1) port 5023 (#0)
+> GET /operations HTTP/1.1
+> Host: 127.0.0.1:5023
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Werkzeug/3.0.1 Python/3.10.12
+< Date: Wed, 29 Nov 2023 11:22:56 GMT
+< Content-Type: application/json
+< Content-Length: 39
+< Connection: close
+< 
+{"result":["+","-","/","*","^","log"]}
+```
 
 ### Run
 
