@@ -71,8 +71,14 @@ Open url: http://localhost:3000 # or the url in the terminal output
 
 ### Initial setup
 
-### Run
+```bash
+cd back
+virtualenv -p python3
+. venv/bin/activate
+pip install -r requirements.txt
+````
 
+### Run
 
 ```bash
 . venv/bin/activate
