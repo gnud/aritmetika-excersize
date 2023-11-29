@@ -47,6 +47,8 @@ class ArithmeticaAPI(MethodView):
             return create_exception_response(str(err))
         except ZeroDivisionError as err:
             return create_exception_response(str(err))
+        except ValueError as err:
+            return create_exception_response(str(err))
         return {
             'status': 'OK',
             'result': result,
