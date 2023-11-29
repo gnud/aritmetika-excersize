@@ -77,7 +77,7 @@ Open url: http://localhost:3000 # or the url in the terminal output
 
 ```bash
 cd back
-virtualenv -p python3
+virtualenv -p python3 venv
 . venv/bin/activate
 pip install -r requirements.txt
 ````
