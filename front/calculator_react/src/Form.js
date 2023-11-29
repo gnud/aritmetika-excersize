@@ -15,6 +15,8 @@ function MyForm() {
     const [result, setResult] = useState('');
 
     useEffect(() => {
+        setResult("0.00");
+
         // Replace with your API endpoint
         axios.get(`${API_URL}/operations`).then(response => {
             const options = response.data.result.map(operator => ({
@@ -28,10 +30,19 @@ function MyForm() {
             }
         });
     }, []);
+    const displayErrors = (errors) => {
+        if (errors != null) {
+            alert(JSON.stringify(errors));
+            return true;
+        }
+    };
 
     // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        setResult('WAIT'); // reset the form on start
+
         try {
             const response = await axios.post(`${API_URL}/calculate`, {
                 "operands": [
@@ -40,12 +51,24 @@ function MyForm() {
                 ],
                 "operator": selectedOption
             });
+
+            if (displayErrors(response.data.errors)) {
+                setResult('ERR');
+                return;
+            }
+
             let result1 = Number(response.data.result);
-            if (result1) {
+            if (result1 != null) {
                 setResult(result1.toFixed(2)); // Assuming the API returns an object with a 'result' field
+            } else{
+                setResult('NaN'+ result1);
             }
         } catch (error) {
-            console.error('Error submitting form', error);
+            const errors = error.response.data.errors;
+            if (displayErrors(errors)) {
+                setResult('ERR');
+                return;
+            }
         }
     };
 
