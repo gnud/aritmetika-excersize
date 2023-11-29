@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+## Goal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Implement a calculator with operations:
+- +, plus (addition)
+- −, minus (subtraction)
+- ÷, obelus (division)
+- ×, times (multiplication)
 
-## Available Scripts
+Rules:
+- inputs are:
+  - operator type enum
+  - two inputs (assumption made due to unspecified requirements) as operands.
 
-In the project directory, you can run:
+# Deployment Docker
 
-### `npm start`
+### Initial setup
+```bash
+docker-compose build
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Run
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Use this .env:
+```dotenv
+REACT_APP_API_URL=
+REACT_APP_API_BASE=/api
+API_URL=http://web:8000
+API_REWRITE=/api
+```
 
-### `npm test`
+```bash
+docker-compose up -d
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+Open url: http://localhost:3060/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Deployment Dev
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Front
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Initial setup
 
-### `npm run eject`
+Use this .env:
+```dotenv
+REACT_APP_API_URL=http://localhost:3000
+REACT_APP_API_BASE=/api
+API_URL=http://localhost:5000
+API_REWRITE=/api
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd front
+nvm use
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Run
+```bash
+nvm use
+npm run
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open url: http://localhost:3000 # or the url in the terminal output
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Initial setup
 
-### Code Splitting
+### Run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+```bash
+. venv/bin/activate
+FLASK_RUN_PORT=5023 python -m flask run
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Usage
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Open url: http://127.0.0.1:5000 # or the url in the terminal output

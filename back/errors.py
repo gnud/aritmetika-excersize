@@ -1,0 +1,2 @@
+class ArithmeticOperatorFailed(Exception):
+    pass

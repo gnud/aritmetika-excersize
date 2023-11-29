@@ -1,0 +1,47 @@
+.myForm {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+}
+
+.myForm input, .myForm select, .myForm button, .result {
+  margin: 0 5px;
+  flex: 1;
+}
+
+.myForm input, .myForm select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.myForm button {
+  max-width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.myForm button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.myForm input, .myForm select, .myForm button {
+  min-height: 25px;
+}
