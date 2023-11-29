@@ -39,6 +39,7 @@ Open url: http://localhost:3060/
 # Deployment Dev
 
 ## Front
+![front_screenshot.png](docs%2Ffront_screenshot.png)
 
 ### Initial setup
 
@@ -68,6 +69,9 @@ Open url: http://localhost:3000 # or the url in the terminal output
 
 
 ## Backend
+
+![Calculate endpoint](docs%2Fback_api_calculate.png)
+![Operations endpoint](docs%2Fback_api_operations.png)
 
 ### Initial setup
 
