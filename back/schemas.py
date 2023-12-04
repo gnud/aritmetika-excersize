@@ -25,3 +25,12 @@ class ArithmeticaResponseSchema(ma.Schema):
 
 class OperatorsResponseSchema(ma.Schema):
     result = ma.fields.List(ma.fields.String(), required=False)
+
+
+class ErrorSchema(ma.Schema):
+    code = ma.fields.Number(required=False)
+    status = ma.fields.Integer(required=True, description='HTTP status code of the error.')
+    error = ma.fields.String(required=True, description='HTTP error message.')
+    message = ma.fields.String(required=True, description='Error message.')
+
+
